@@ -11,16 +11,24 @@
 
 	.background-image {
 		min-height: 100%;
-		min-width: 100%;
-		position: absolute
+		min-width: 1024px;
+		
+		/* Set up proportionate scaling */
+		width: 100%;
+		height: auto;
+		
+		/* Set up positioning */
+		position: fixed;
+		top: 0;
+		left: 0;
 	}
 
 	.icon {
-    	margin-left: 690px;
-    	margin-right: 470px;
-    	margin-top: 375px;
-    	z-index: 1; 
-    	position:relative
+		margin-left: 690px;
+		margin-right: 470px;
+		margin-top: 375px;
+		z-index: 1; 
+		position:relative
 	}
 
 	nav ul {
@@ -35,6 +43,11 @@
 		margin-top: 100px;
 		display: inline;
 		padding: 10px;
+	}
+
+	.links {
+		color: #fff;
+		text-decoration: none;
 	}
 
 </style>
