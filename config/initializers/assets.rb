@@ -12,6 +12,6 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w( audiodisplay.js )
 Rails.application.config.assets.precompile += %w( recorder.js )
 Rails.application.config.assets.precompile += %w( main.js )
-
-
 Rails.application.config.assets.precompile += %w( recorderWorker.js )
+
+
