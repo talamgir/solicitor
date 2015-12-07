@@ -5,9 +5,9 @@ class ProfilesController < ApplicationController
 	 	@profile = Profile.new(profile_params)
 	 	@profile.user_id = params[:user_id]
 
-	 	@profile.save
+	 	if @profile.save
+	 		redirect_to profile_path
 
-	 	
 	 end
 
 	 def create
