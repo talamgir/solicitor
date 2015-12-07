@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  get 'projects/index'
+
+  get 'projects/new'
+
+  get 'projects/create'
+
+  get 'projects/destroy'
+
   get 'projects/organizer'
 
   get 'projects/template'
@@ -9,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'projects/recorder'
 
+  get 'projects/show'
+
   root to: "home#index"
 
   devise_for :users, :controllers => {:omniauth_callbacks => "users/omniauth_callbacks" }
@@ -17,8 +27,11 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
 
-  resources :profiles
-  resources :projects
+  resources :profiles, only: [:show]
+  
+  post 'projects/show' => 'projects#show'
+
+  resources :projects, only: [:index, :new, :create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

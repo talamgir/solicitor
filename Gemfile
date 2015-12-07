@@ -46,6 +46,9 @@ group :development do
   gem 'tinymce-rails'
   gem 'paperclip', "~> 4.3"
   gem "pry-rails"
+  gem "carrierwave"
+  gem "bootstrap-sass"
+
 
 end
 

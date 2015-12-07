@@ -1,20 +1,6 @@
 class ProjectsController < ApplicationController
-  def organizer
-  end
-
-  def template
-  end
-
-  def add_files
-  end
-
-  def recorder
-  end
-
-  def print
-  end
-
   def index
+    @projects = Project.all
   end
 
   def new
@@ -23,17 +9,37 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+
     if @project.save
-      flash[:success] = "The project was added!"
-      redirect_to profile_path
+      redirect_to projects_path, notice: "The file has been uploaded."
     else
-      render 'show'
+      render "new"
     end
   end
 
-  private
+  def destroy
+    @project = Project.find(params[:id])
+    @project.destroy
+    redirect_to projects_path, notice:  "The project has been deleted"
+  end
 
+  def organizer
+  end
+
+  def template
+  end
+
+  def recorder
+  end
+
+  def add_files
+  end
+
+  def print
+  end
+
+  private
   def project_params
-    params.require(:project).permit(:document)
+    params.require(:project).permit(:name, :attachment)
   end
 end

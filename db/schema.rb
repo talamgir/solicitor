@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201215241) do
+ActiveRecord::Schema.define(version: 20151207204125) do
 
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20151201215241) do
     t.string   "document_content_type"
     t.integer  "document_file_size"
     t.datetime "document_updated_at"
+    t.string   "attachment"
+    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|

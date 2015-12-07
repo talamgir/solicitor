@@ -1,79 +1,34 @@
-var clsStopwatch = function() {
-        var startAt = 0;   
-        var lapTime = 0;   
+var sec = 0;
+var min = 0;
+var hour = 0;
+function stopwatch(text) {
+ sec++;
+ if (sec == 60) {
+   sec = 0;
+   min = min + 1; }
+   else {
+     min = min; }
+     if (min == 60) {
+       min = 0; 
+       hour += 1; }
 
-        var now = function() {
-                return (new Date()).getTime(); 
-            }; 
- 
-        
-        this.start = function() {
-                startAt = startAt ? startAt : now();
-            };
+       if (sec<=9) { sec = "0" + sec; }
+       document.clock.stwa.value = ((hour<=9) ? "0"+hour : hour) + " : " + ((min<=9) ? "0" + min : min) + " : " + sec;
 
-       
-        this.stop = function() {
-                
-                lapTime = startAt ? lapTime + now() - startAt : lapTime;
-                startAt = 0; 
-            };
+       if (text == "Start") { document.clock.theButton.value = "Stop "; }
+       if (text == "Stop ") { document.clock.theButton.value = "Start"; }
 
-        
-        this.reset = function() {
-                lapTime = startAt = 0;
-            };
+       if (document.clock.theButton.value == "Start") {
+         window.clearTimeout(SD);
+         return true; }
+         SD=window.setTimeout("stopwatch();", 1000);
+       }
 
-      
-        this.time = function() {
-                return lapTime + (startAt ? now() - startAt : 0); 
-            };
-    };
-
-var x = new clsStopwatch();
-var $time;
-var clocktimer;
-
-function pad(num, size) {
-    var s = "0000" + num;
-    return s.substr(s.length - size);
-}
-
-function formatTime(time) {
-    var h = m = s = ms = 0;
-    var newTime = '';
-
-    h = Math.floor( time / (60 * 60 * 1000) );
-    time = time % (60 * 60 * 1000);
-    m = Math.floor( time / (60 * 1000) );
-    time = time % (60 * 1000);
-    s = Math.floor( time / 1000 );
-    ms = time % 1000;
-
-    newTime = pad(h, 2) + ':' + pad(m, 2) + ':' + pad(s, 2) + ':' + pad(ms, 3);
-    return newTime;
-}
-
-function show() {
-    $time = document.getElementById('time');
-    update();
-}
-
-function update() {
-    $time.innerHTML = formatTime(x.time());
-}
-
-function start() {
-    clocktimer = setInterval("update()", 1);
-    x.start();
-}
-
-function stop() {
-    x.stop();
-    clearInterval(clocktimer);
-}
-
-function reset() {
-    stop();
-    x.reset();
-    update();
-}
+       function resetIt() {
+        sec = -1;
+        min = 0;
+        hour = 0;
+        if (document.clock.theButton.value == "Stop ") {
+          document.clock.theButton.value = "Start"; }
+          window.clearTimeout(SD);
+        }
