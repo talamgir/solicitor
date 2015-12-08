@@ -1,4 +1,29 @@
-<li>
-	<%= link_to "Sign Out", destroy_user_session_path %>
-	
-</li>
+<br />
+<br />
+<br />
+<br />
+<div class="container">
+<div class="row">
+	<div class="col-md-4">
+		<%= link_to "Create Your Own Outline", projects_organizer_path %>
+	</div>
+	<div class="col-md-4">
+		<%= link_to "Use A Template Outine", projects_template_path %>
+	</div>
+	<div class="col-md-4">
+		<%= link_to "Create A Recording", projects_recorder_path %>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-4">
+		<%= link_to "Add A File", projects_new_path %>
+	</div>
+	<div class="col-md-4">
+		<%= link_to "View All Files", projects_index_path %>
+	</div>
+	<div class="col-md-4">
+		<%= link_to "Sign Out", destroy_user_session_path %>
+	</div>
+</div>
+</div>

@@ -48,6 +48,9 @@ group :development do
   gem "pry-rails"
   gem "carrierwave"
   gem "bootstrap-sass"
+  gem "combine_pdf"
+
+
 
 
 end
