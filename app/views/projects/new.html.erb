@@ -1,3 +1,7 @@
+<br />
+<br />
+<br />
+<br />
 <% if !@project.errors.empty? %>
   <div class="alert alert-error">
     <ul>
@@ -13,6 +17,7 @@
     
     <%= f.label :attachment %>
     <%= f.file_field :attachment %>
+    <br />
     <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>
 </div>

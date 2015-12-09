@@ -19,7 +19,7 @@ DEALINGS IN THE SOFTWARE.
 
 (function(window){
 
-  var WORKER_PATH = 'http://localhost:3000/assets/recorderWorker.self-5b4574940dc9d8acf4b1393e8f69333dd6d78925b76d186ce229df83686f0e31.js?body=1';
+  var WORKER_PATH = 'http://localhost:3000/assets/recorderWorker.self-4476630bb4bb9bb323f170ef87fb1cde9d64fc6642fdb9a3d87a2b3385ab4159.js?body=1';
 
   var Recorder = function(source, cfg){
     var config = cfg || {};
