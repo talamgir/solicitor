@@ -13,5 +13,7 @@ Rails.application.config.assets.precompile += %w( audiodisplay.js )
 Rails.application.config.assets.precompile += %w( recorder.js )
 Rails.application.config.assets.precompile += %w( main.js )
 Rails.application.config.assets.precompile += %w( recorderWorker.js )
+Rails.application.config.assets.precompile += %w( tinymce/plugins/print.js )
+Rails.application.config.assets.precompile += %w( tinymce/plugins/save.js )
 
 

@@ -6,35 +6,79 @@
 		margin: 20px;
 	}
 
-	.imgs {
-		width: 100px;
-		height: 100px
+	.btn-prof2 {
+		margin-top, margin-right: 20px;
+		margin-left: 50px;
+		margin-bottom: 30px
 	}
+
+	.img1 {
+		width: 200px;
+		height: 100px;
+		display: block;
+		margin: 10px;
+	
+	}
+
+	.row {
+		margin-bottom: 10px
+	}
+
+
 </style>
 <div class="container">
 
-<h3>Hello, <%= @user %> </h3>
+<h3><span> Hello, <%= @user %></span></h3>
+<h3><span> What would you like to work on today?</span></h3>
+
+
+
 <div class="row">
 	<div class="col-md-4">
 		
-		<button type="button" class="btn btn-default btn-lg btn-prof"><%= link_to "Create Your Own Outline", projects_organizer_path %></button>
+		<button type="button" class="btn btn-default btn-lg btn-prof"><span><%= link_to "Create Your Own Outline", projects_organizer_path %></span></button>
+		<%= link_to (image_tag 'outline', class: 'img1'), projects_organizer_path %>
 		
 	</div>
 	<div class="col-md-4">
-		<button type="button" class="btn btn-default btn-lg btn-prof"><%= link_to "Use A Template Outine", projects_template_path %></button>
+		<button type="button" class="btn btn-default btn-lg btn-prof"><span><%= link_to "Use A Template Outine", projects_template_path %></span></button>
+		<%= link_to (image_tag 'template', class: 'img1'), projects_template_path %>
 	</div>
 	<div class="col-md-4">
-		<button type="button" class="btn btn-default btn-lg btn-prof"><%= link_to "Create A Recording", projects_recorder_path %></button>
+		<button type="button" class="btn btn-default btn-lg btn-prof"><span><%= link_to "Create A Recording", projects_recorder_path %></span></button>
+		<%= link_to (image_tag 'record-button', class: 'img1'), projects_recorder_path%>
 	</div>
 </div>
 
 <div class="row">
 	<div class="col-md-4">
-		<button type="button" class="btn btn-default btn-lg btn-prof"><%= link_to "Add A File", projects_new_path %></button>
+		<button type="button" class="btn btn-default btn-lg btn-prof2"><span><%= link_to "Add A File", projects_new_path %></span></button>
+		<%= link_to (image_tag 'document_add', class: 'img1'), projects_new_path %>
 	</div>
 
 	<div class="col-md-4">
-		<button type="button" class="btn btn-default btn-lg btn-prof"><%= link_to "View All Files", projects_index_path %></button>
+		<button type="button" class="btn btn-default btn-lg btn-prof2"><span><%= link_to "Print All Files", projects_index_path %></span></button>
+		<%= link_to (image_tag 'PrintPreview', class: 'img1'), projects_index_path %>
+	</div>
+	<div class="col-md-4">
+		<button type="button" class="btn btn-default btn-lg btn-prof2"><span><%= link_to "About Us", root_path %></span></button>
+		<%= link_to (image_tag 'about-icon', class: 'img1'), root_path %>
+	</div>
+
 	</div>
 </div>
-</div>
+<script type="text/javascript">
+	$('.img1').hover(function() {
+    $(this).css("cursor", "pointer");
+    $(this).animate({
+        width: "70%",
+        height: "70%"
+    }, 'slow');
+
+}, function() {
+    $(this).animate({
+        width: "50%"
+    }, 'slow');
+
+});
+</script>
