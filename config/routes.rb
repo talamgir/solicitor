@@ -5,8 +5,6 @@ Rails.application.routes.draw do
 
   get 'projects/create'
 
-  get 'projects/destroy'
-
   get 'projects/organizer'
 
   get 'projects/template'
@@ -30,6 +28,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show]
   
   post 'projects/show' => 'projects#show'
+
 
   resources :projects, only: [:index, :new, :create, :destroy]
 

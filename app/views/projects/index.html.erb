@@ -8,7 +8,7 @@
 <br />
 <br />
 <br />
-<span><%= link_to "New Project", new_project_path, class: "btn btn-primary" %></span>
+<span><%= link_to "Add File", new_project_path, class: "btn btn-primary" %></span>
 <span><%= link_to "Print", %x`lp -d Brother_MFC_9330CDW talamgir/Desktop/solicitor/public/uploads/project/attachment/10/3_Page_Writing_Sample.pdf`, class: "btn btn-primary" %></span>
 <br />
 <br />
@@ -16,7 +16,7 @@
   <thead>
     <tr>
       <th><span>Download Link</span></th>
-      <th><span>Delete</span></th>
+      <th><span>Delete File</span></th>
       <th>&nbsp;</th>
     </tr>
   </thead>
@@ -24,8 +24,8 @@
     <% @projects.each do |p| %>
       <tr>
         
-        <td><span><%= link_to p.name, p.attachment_url %></span></td>
-        <td><span><%= button_to "Delete", method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete this?" %></span></td>
+        <td><span><%= link_to p.attachment_url %></span></td>
+        <td><span><%= link_to "Delete", p, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete this?" %></span></td>
       </tr>
     <% end %>
   </tbody>
