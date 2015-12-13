@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	# :confirmable, :lockable, :timeoutable and :omniauthable
 
   has_one :profile
+  has_many :projects
 	devise :database_authenticatable, :registerable,
 	:recoverable, :rememberable, :trackable, :validatable
 	devise :omniauthable, :omniauth_providers => [:facebook]

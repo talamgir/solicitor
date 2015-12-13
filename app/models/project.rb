@@ -1,4 +1,4 @@
 class Project < ActiveRecord::Base
-	has_many :users
+	belongs_to :user
 	mount_uploader :attachment, AttachmentUploader
 end

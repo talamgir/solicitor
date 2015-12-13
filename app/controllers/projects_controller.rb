@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all 
+    @user = current_user
+    @projects = Project.where(user_id = @user.id)
   end
 
   def new
@@ -9,9 +10,11 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
+    @user = current_user
 
     if @project.save
       redirect_to projects_path, notice: "The file has been uploaded."
+      @project.user_id = @user.id
     else
       render "new"
     end
@@ -27,6 +30,7 @@ class ProjectsController < ApplicationController
   end
 
   def template
+    @user = current_user
   end
 
   def recorder

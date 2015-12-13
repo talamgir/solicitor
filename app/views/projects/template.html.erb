@@ -2,5 +2,10 @@
 <br />
 <br />
 <br />
-<%= text_area_tag :content, "", :class => "tinymce", :rows => 40, :cols => 120 %>
+<%= text_area_tag :content, "#{@user.email}'s Project\n<br>
+Introduction\n<br>
+Argument 1\n<br>
+Argument 2 \n<br>
+Argument 3\n<br>
+Conclusion", :class => "tinymce", :rows => 40, :cols => 120 %>
 <%= tinymce %>
