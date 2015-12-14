@@ -28,6 +28,7 @@ Rails.application.routes.draw do
   resources :profiles, only: [:show]
   
   post 'projects/show' => 'projects#show'
+  get 'projects/print' => 'projects#print'
   get 'users/:id/projects' => 'users#projects', :as => :user_projects
 
 

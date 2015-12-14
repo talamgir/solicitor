@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151212081852) do
+ActiveRecord::Schema.define(version: 20151214162924) do
+
+  create_table "organizers", force: :cascade do |t|
+    t.text     "outline"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "organizers", ["user_id"], name: "index_organizers_on_user_id"
 
   create_table "profiles", force: :cascade do |t|
     t.datetime "created_at", null: false

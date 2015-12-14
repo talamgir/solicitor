@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
   def index
     @user = current_user
-    @projects = Project.where(user_id = @user.id)
+
+    @projects = Project.where(user_id: @user.id)
   end
 
   def new
@@ -11,10 +12,10 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     @user = current_user
-
+    @project.user_id = @user.id
     if @project.save
       redirect_to projects_path, notice: "The file has been uploaded."
-      @project.user_id = @user.id
+      
     else
       render "new"
     end
@@ -40,6 +41,8 @@ class ProjectsController < ApplicationController
   end
 
   def print
+    @print = `lp -d Brother_MFC_9330CDW  ~/Desktop/solicitor/public/uploads/project/attachment/22/*`
+       redirect_to projects_path, notice: "The project is printing"
   end
 
   private
